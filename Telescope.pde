@@ -4,6 +4,7 @@ class Telescope {
   float zoom;
   float focus;
   color rimcol;
+  CelestialBody currentBody;
   
   // Constructor
   Telescope(float z, float f, color c) {
