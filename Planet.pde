@@ -10,8 +10,8 @@ class Planet extends CelestialBody {
 
   
   // Constructor
-  Planet(float x, float y, boolean i, boolean r, float s, boolean rs, boolean g, ArrayList<String> m){
-    super(x, y);
+  Planet(String n, float x, float y, boolean i, boolean r, float s, boolean rs, boolean g, ArrayList<String> m){
+    super(x, y, n);
     this.hasIceCaps = i;
     this.hasRings = r;
     this.spotLevel = s; 
