@@ -3,8 +3,8 @@ class Galaxy extends CelestialBody{
   float[] xpos; //size 200
   float[] ypos;
 //constructor
-  Galaxy(float x, float y, String n){
-    super(x, y, n);
+  Galaxy(float x, float y, String n, Telescope t){
+    super(x, y, n, t);
     for(int i = 0; i < xpos.length; i++){
       xpos[i] = random(12.5, 487.5);   
     
