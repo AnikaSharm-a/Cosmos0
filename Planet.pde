@@ -8,11 +8,10 @@ class Planet extends CelestialBody {
   boolean hasSpots; 
   boolean redSpot;
   boolean gasGiant;
-  String[] monthsVisible;
 
   
   // Constructor
-  Planet(Telescope t, String n, float x, float y, float d, color c, boolean i, boolean r, boolean s, boolean rs, boolean g, String[] m){
+  Planet(Telescope t, String n, float x, float y, float d, color c, boolean i, boolean r, boolean s, boolean rs, boolean g){
     super(x, y, n, t);
     this.diameter = d;
     this.basecol = c;
@@ -21,23 +20,23 @@ class Planet extends CelestialBody {
     this.hasSpots = s; 
     this.redSpot = rs;
     this.gasGiant = g;
-    this.monthsVisible = m;  
   }
   
   
   // Methods
   
   void drawPlanet(){
-    // radius change depending on zoom
-    // number of craters/lines change depending on focus
-    // x,y changes based on moving of telescope
+    // number of craters/lines change depending on focus - not sure how to do this???
+    
+    float x = this.x;
+    float y = this.y;
     
     float zoom = this.telescope.zoom;
     
     stroke(0);
     fill(this.basecol);
     circle(this.x, this.y, this.diameter);
-    
+
     
     // Drawing the spots for Mars
     if (this.hasSpots){ 
@@ -53,25 +52,94 @@ class Planet extends CelestialBody {
       stroke(spotcol);
       
       if (zoom == 25) {
-        circle(252,257,10);
+        circle(x+2,y,10);
       }
       
       else if (zoom == 50) {
-        circle(252,257,20);
-        circle(240,240,20);
+        circle(x+2,y+7,20);
+        circle(x-10,y-10,20);
       }
       
       else {
-        circle(275,270,40);
-        circle(250,245,40);
-        circle(222,266,40);
+        circle(x+25,y+20,40);
+        circle(x,y-5,40);
+        circle(x-28,y+16,40);
       }  
-      
     }
    
     
-    // Drawing the ice caps
+    // Drawing the ice caps for Mars
+    if (this.hasIceCaps) {
+      fill(255);
+      
+      if (zoom == 25) {
+        arc(x, y-11, 15, 6, PI, TWO_PI);
+        arc(x, y+13, 6, 4, 0, PI);
+      }
+      
+      else if (zoom == 50) {
+        arc(x, y-36, 22, 6, PI, TWO_PI);
+        arc(x, y+38, 12, 4, 0, PI);
+      }
+      
+      else {
+        arc(x, y-78, 75, 20, PI, TWO_PI);
+        arc(x, y+83, 55, 12, 0, PI);  
+      }
+    }
     
+    
+    // Drawing Jupiter
+    if (this.gasGiant && this.name.equals("Jupiter")) {
+      
+      if (zoom == 25) {
+        noStroke();
+        
+        fill(140,120,94);
+        arc(x, y-9, 20, 10, PI, TWO_PI);
+        arc(x, y+10, 20, 10, 0, PI);
+        
+        stroke(220,227,218);
+        strokeWeight(3);
+        line(x-11, y-7, x+10, y-7);
+        line(x-13, y, x+13, y);
+        line(x-10, y+8, x+9, y+8);
+        
+        stroke(137,88,73);
+        strokeWeight(3);
+        line(x-11, y-6, x+10, y-6);
+        line(x-13, y+1, x+13, y+1);
+        line(x-10, y+9, x+9, y+9);
+        
+        if (this.redSpot) {
+          fill(215,125,64);
+          stroke(137,88,73);
+          strokeWeight(1);
+          ellipse(x+4, y+4, 10, 5);
+        }
+        
+        noStroke();
+        fill(255);
+        circle(x-80,y,2);
+        circle(x-40,y,2);
+        circle(x+40,y,2);
+        circle(x+50,y,2);
+      }
+      
+      else if (zoom == 50) {
+        // To be drawn
+      }
+      
+      else {
+        // To be drawn 
+      }
+    }
+    
+    
+    // Drawing Saturn
+    if (this.gasGiant && this.name.equals("Saturn")) {
+      // To be drawn 
+    }
   }
   
 }

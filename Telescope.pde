@@ -4,7 +4,6 @@ class Telescope {
   float zoom;
   float focus;
   color rimcol;
-  CelestialBody currentBody;
   
   // Constructor
   Telescope(float z, float f, color c) {
@@ -18,15 +17,12 @@ class Telescope {
   void drawTelescope(){
     stroke(this.rimcol);
     strokeWeight(20);
-    noFill();
+    fill(0);
     circle(250, 250, 475);
   }
   
-  
-  void adjustZoom(){}
-  
-  void adjustFocus(){}
-  
-  void moveTelescope(){}
+  void moveTelescope(){
+    // Change x and y pos of celestial body opposite to which key is moved: += or -= x/yspeed 
+  }
   
 }
