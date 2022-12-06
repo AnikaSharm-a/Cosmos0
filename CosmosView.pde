@@ -4,7 +4,7 @@ import g4p_controls.*;
 
 // Gui variables
 int guiZoom = 25;
-String guiCB = "Mars";
+String guiCB = "Venus";
 float guiFocus = 0;
 
 
@@ -24,7 +24,7 @@ void draw(){
   
   // All the celestial body objects
   float planetsize = 2*scope.zoom;
-  Planet venus = new Planet(scope, "Venus", 250,250, planetsize, color(243), false, false, false, false, false);
+  Planet venus = new Planet(scope, "Venus", 250,250, planetsize, color(230), false, false, false, false, false);
   Planet mars = new Planet(scope, "Mars", 250,250, planetsize, color(116,86,50), true, false, true, false, false);
   Planet jupiter = new Planet(scope, "Jupiter", 250,250, planetsize, color(181,162,132), false, true, false, true, true);
   // Create more cbs here

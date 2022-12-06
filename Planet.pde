@@ -127,11 +127,72 @@ class Planet extends CelestialBody {
       }
       
       else if (zoom == 50) {
-        // To be drawn
+        noStroke();
+        
+        fill(140,120,94);
+        arc(x, y-21, 64, 36, PI, TWO_PI);
+        arc(x, y+22, 63, 35, 0, PI);
+        
+        stroke(220,227,218);
+        strokeWeight(9);
+        line(x-31, y-16, x+31, y-16);
+        line(x-35, y, x+35, y);
+        line(x-31, y+16, x+31, y+16);
+        
+        stroke(137,88,73);
+        strokeWeight(6);
+        line(x-34, y-12, x+34, y-12);
+        line(x-36, y+5, x+36, y+5);
+        line(x-32, y+20, x+32, y+20);
+        
+        if (this.redSpot) {
+          fill(215,125,64);
+          stroke(137,88,73);
+          strokeWeight(1);
+          ellipse(x+12, y+14, 15, 7);
+        }
+        
+        noStroke();
+        fill(255);
+        circle(x-100,y,5);
+        circle(x+100,y,5);
+        
+        noFill();
+        stroke(0);
+        strokeWeight(20);
+        circle(x,y,this.diameter-15);
       }
       
       else {
-        // To be drawn 
+        noStroke();
+        
+        fill(140,120,94);
+        arc(x, y-50, 144, 78, PI, TWO_PI);
+        arc(x, y+50, 144, 79, 0, PI);
+       
+        stroke(220,227,218);
+        strokeWeight(15);
+        line(x-85, y-40, x+85, y-40);
+        line(x-90, y, x+90, y);
+        line(x-85, y+40, x+85, y+40);
+       
+        stroke(137,88,73);
+        strokeWeight(10);
+        line(x-85, y-30, x+85, y-30);
+        line(x-90, y-23, x+90, y-23);
+        line(x-85, y+20, x+85, y+20);
+        
+        if (this.redSpot) {
+          fill(215,125,64);
+          stroke(137,88,73);
+          strokeWeight(1);
+          ellipse(x+30, y+30, 40, 20);
+        }     
+        
+        noFill();
+        stroke(0);
+        strokeWeight(20);
+        circle(x,y,this.diameter-15);
       }
     }
     

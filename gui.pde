@@ -44,7 +44,7 @@ public void createGUI(){
   window1.setActionOnClose(G4P.KEEP_OPEN);
   window1.addDrawHandler(this, "win_draw1");
   cb = new GDropList(window1, 17, 39, 90, 180, 8, 10);
-  cb.setItems(loadStrings("list_383729"), 2);
+  cb.setItems(loadStrings("list_383729"), 1);
   cb.addEventHandler(this, "cbChosen");
   label1 = new GLabel(window1, 16, 12, 88, 20);
   label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
