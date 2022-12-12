@@ -21,8 +21,4 @@ class Telescope {
     circle(250, 250, 475);
   }
   
-  void moveTelescope(){
-    // Change x and y pos of celestial body opposite to which key is moved: += or -= x/yspeed 
-  }
-  
 }

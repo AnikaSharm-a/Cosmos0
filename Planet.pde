@@ -25,9 +25,7 @@ class Planet extends CelestialBody {
   
   // Methods
   
-  void drawPlanet(){
-    // number of craters/lines change depending on focus - not sure how to do this???
-    
+  void drawPlanet(){        
     float x = this.x;
     float y = this.y;
     
@@ -199,7 +197,102 @@ class Planet extends CelestialBody {
     
     // Drawing Saturn
     if (this.gasGiant && this.name.equals("Saturn")) {
-      // To be drawn 
+            
+      if (zoom == 25) {
+        
+        // Drawing the bottom line
+        stroke(183,153,127);
+        strokeWeight(5);
+        line(x-12, y+5, x+12, y+5);
+        
+        // Drawing the rings
+        strokeWeight(4.5);
+        noFill();
+        
+        stroke(170,169,165);
+        ellipse(x, y, 50, 20);
+        
+        stroke(113);
+        ellipse(x, y, 60, 30);
+        
+        // Covering the top rings with an arc
+        fill(181,159,125);
+        noStroke();
+        arc(x, y-5, 25, 20, PI, TWO_PI);
+      }
+      
+      
+      else if (zoom == 50){
+        
+        // Drawing the bottom line
+        stroke(183,153,127);
+        strokeWeight(8);
+        line(x-34, y+13, x+34, y+13);
+        
+        // Drawing the rings
+        strokeWeight(15.5);
+        noFill();
+        
+        stroke(170,169,165);
+        ellipse(x, y, 140, 50);
+        
+        stroke(113);
+        ellipse(x, y, 180, 85);
+        
+        // Covering the top rings with an arc
+        fill(181,159,125);
+        noStroke();
+        arc(x, y-15, 69, 50, PI, TWO_PI);  
+        
+        // Middle Band
+        stroke(207,187,150);
+        strokeWeight(8);
+        line(x-34, y, x+34, y);
+      }
+      
+      
+      else {
+        
+        // Drawing the bottom line
+        stroke(183,153,127);
+        strokeWeight(20);
+        line(x-80, y+35, x+80, y+35);
+        
+        // Drawing the rings
+        strokeWeight(17.5);
+        noFill();
+        
+        stroke(190);
+        ellipse(x, y, 250, 105);
+        
+        stroke(170,169,165);
+        ellipse(x, y, 275, 125);
+        
+        stroke(113);
+        ellipse(x, y, 315, 165);
+        
+        // Covering the top rings with an arc
+        fill(181,159,125);
+        noStroke();
+        arc(x, y, 179, 179, PI, TWO_PI);  
+        
+        // Bands (top to bottom)
+        stroke(151,143,130);
+        strokeWeight(10);
+        line(x-60, y-60, x+60, y-60);
+        
+        stroke(199,176,133);
+        strokeWeight(8);
+        line(x-66, y-55, x+66, y-55);
+        
+        strokeWeight(20);
+        stroke(199,176,133);
+        line(x-75, y-25, x+75, y-25);
+        
+        strokeWeight(9);
+        stroke(183,153,127);
+        line(x-83, y-18, x+83, y-18);
+      }
     }
   }
   

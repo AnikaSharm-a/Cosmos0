@@ -27,8 +27,13 @@ public void zoomChosen(GDropList source, GEvent event) { //_CODE_:zoom:687620:
 } //_CODE_:zoom:687620:
 
 public void focusChanged(GKnob source, GEvent event) { //_CODE_:focus:258626:
-  guiFocus = focus.getValueF();
+  guiFocus = pow((focus.getValueF() - 5), 2);
 } //_CODE_:focus:258626:
+
+public void recenterButtonClicked(GButton source, GEvent event) { //_CODE_:recenter:813176:
+  xpos = 250;
+  ypos = 250;
+} //_CODE_:recenter:813176:
 
 
 
@@ -39,41 +44,45 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  window1 = GWindow.getWindow(this, "Window title", 0, 0, 300, 300, JAVA2D);
+  window1 = GWindow.getWindow(this, "Window title", 0, 0, 250, 300, JAVA2D);
   window1.noLoop();
   window1.setActionOnClose(G4P.KEEP_OPEN);
   window1.addDrawHandler(this, "win_draw1");
   cb = new GDropList(window1, 17, 39, 90, 180, 8, 10);
-  cb.setItems(loadStrings("list_383729"), 1);
+  cb.setItems(loadStrings("list_383729"), 0);
   cb.addEventHandler(this, "cbChosen");
   label1 = new GLabel(window1, 16, 12, 88, 20);
   label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label1.setText("Celestial Body");
   label1.setOpaque(false);
-  label2 = new GLabel(window1, 123, 13, 80, 20);
+  label2 = new GLabel(window1, 136, 13, 80, 20);
   label2.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label2.setText("Zoom");
   label2.setOpaque(false);
-  zoom = new GDropList(window1, 118, 39, 90, 80, 3, 10);
+  zoom = new GDropList(window1, 131, 41, 90, 80, 3, 10);
   zoom.setItems(loadStrings("list_687620"), 0);
   zoom.addEventHandler(this, "zoomChosen");
-  focus = new GKnob(window1, 225, 33, 45, 40, 0.8);
+  focus = new GKnob(window1, 146, 137, 60, 54, 0.8);
   focus.setTurnRange(275, 275);
   focus.setTurnMode(GKnob.CTRL_ANGULAR);
   focus.setShowArcOnly(false);
   focus.setOverArcOnly(false);
   focus.setIncludeOverBezel(false);
   focus.setShowTrack(true);
-  focus.setLimits(1.0, 1.0, 10.0);
+  focus.setLimits(3.0, 1.0, 10.0);
   focus.setNbrTicks(10);
   focus.setShowTicks(true);
   focus.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   focus.setOpaque(false);
   focus.addEventHandler(this, "focusChanged");
-  label3 = new GLabel(window1, 208, 12, 80, 20);
+  label3 = new GLabel(window1, 135, 104, 80, 20);
   label3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label3.setText("Focus");
   label3.setOpaque(false);
+  recenter = new GButton(window1, 27, 146, 70, 28);
+  recenter.setText("Re-center");
+  recenter.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  recenter.addEventHandler(this, "recenterButtonClicked");
   window1.loop();
 }
 
@@ -86,3 +95,4 @@ GLabel label2;
 GDropList zoom; 
 GKnob focus; 
 GLabel label3; 
+GButton recenter; 
