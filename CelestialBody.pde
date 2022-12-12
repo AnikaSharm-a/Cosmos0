@@ -4,90 +4,58 @@ class CelestialBody {
   float x;
   float y;
   String name;
-  int level;
-  String beginnerD;
-  String middleD;
-  String advancedD;
-  
+  String desc;
+  Telescope telescope;
   
   // Constructor
-  CelestialBody(float x, float y, String n){
+  CelestialBody(float x, float y, String n, Telescope t){
     this.x = x;
     this.y = y;
     this.name = n;
-    this.level = 1;
+    this.telescope = t;
     setDescription();
   }
   
   // Methods
-  
-  void setDescription(){ // sets all the descriptions separately for cleanliness
-    //if name matches the selected body then display text
-    if (this.name == "venus"){ //lowercase
-      this.beginnerD = "";
-      this.middleD = "";
-      this.advancedD = "";
-    
+  void setDescription(){
+    if(this.name == "Venus"){
+      this.desc = "A terrestrial planet and the \nsecond furthest from the sun.";
     }
-    else if(this.name == "mars"){
-      this.beginnerD = "";
-      this.middleD = "";
-      this.advancedD = "";
+    else if(this.name == "Mars"){
+      this.desc = "A terrestrial planet and the \nfourth furthest from the sun.";
     }
-    
-    else if(this.name == "jupiter"){
-      this.beginnerD = "";
-      this.middleD = "";
-      this.advancedD = "";
+    else if(this.name == "Jupiter"){
+      this.desc = "The first gas giant in the solar system. \nFifth furthest away and the largest planet.";
     }
-    else if(this.name == "saturn"){
-      this.beginnerD = "";
-      this.middleD = "";
-      this.advancedD = "";
+    else if(this.name == "Saturn"){
+      this.desc = "";
     }
-    
-    else if(this.name == "sirius"){
-      this.beginnerD = "hate";
-      this.middleD = "crimes";
-      this.advancedD = "thought";
+    else if(this.name == "Andromeda"){
+      this.desc = "aa";
     }
-    
-    else if(this.name == "acturus"){
-      this.beginnerD = "";
-      this.middleD = "";
-      this.advancedD = "";
+    else if(this.name == "Sirius"){
+      this.desc = "oiweo";
     }
-    
-    else if(this.name == "moon"){
-      this.beginnerD = "";
-      this.middleD = "";
-      this.advancedD = "";
-    }
-    
-    else if(this.name == "andromeda"){
-    
+    else if(this.name == "Arcturus"){
+      this.desc = "woieoiw";
     }
     else{
-      this.beginnerD = "dingus";
-      this.middleD = "dingus";
-      this.advancedD = "dingus";
+      this.desc = "you shouldn't be here";
+    
     }
-     
-  
   }
-
+  
   void displayDescription(){
-    if(this.level == 1){
-      text(this.beginnerD, 600, 100);
-    }
-    else if(this.level == 2){
-      text(this.middleD, 600, 600);
-    }
-    else if(this.level == 3){
-      text(this.advancedD, 600, 100);
-    }
-    else{
-      print("dingus");    
-    }
+    fill(255);
+    PFont font;
+    font = createFont("Times New Roman", 50);
+    textFont(font);
+    text(this.name, 600, 80);
+    
+    PFont f;
+    f = createFont("Times New Roman", 20);
+    textFont(f);
+    text(this.desc, 600, 120);
   }
+  
 }
