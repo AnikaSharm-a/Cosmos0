@@ -35,6 +35,10 @@ public void recenterButtonClicked(GButton source, GEvent event) { //_CODE_:recen
   ypos = 250;
 } //_CODE_:recenter:813176:
 
+public void moonPhasesChanged(GCustomSlider source, GEvent event) { //_CODE_:moonPhases:565844:
+  guiPhase = moonPhases.getValueI();
+} //_CODE_:moonPhases:565844:
+
 
 
 // Create all the GUI controls. 
@@ -83,6 +87,21 @@ public void createGUI(){
   recenter.setText("Re-center");
   recenter.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   recenter.addEventHandler(this, "recenterButtonClicked");
+  moonPhases = new GCustomSlider(window1, 42, 239, 160, 49, "purple18px");
+  moonPhases.setShowValue(true);
+  moonPhases.setShowLimits(true);
+  moonPhases.setLimits(2, 1, 8);
+  moonPhases.setNbrTicks(8);
+  moonPhases.setStickToTicks(true);
+  moonPhases.setShowTicks(true);
+  moonPhases.setNumberFormat(G4P.INTEGER, 0);
+  moonPhases.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  moonPhases.setOpaque(false);
+  moonPhases.addEventHandler(this, "moonPhasesChanged");
+  label4 = new GLabel(window1, 78, 215, 80, 20);
+  label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label4.setText("Moon Phases");
+  label4.setOpaque(false);
   window1.loop();
 }
 
@@ -96,3 +115,5 @@ GDropList zoom;
 GKnob focus; 
 GLabel label3; 
 GButton recenter; 
+GCustomSlider moonPhases; 
+GLabel label4; 

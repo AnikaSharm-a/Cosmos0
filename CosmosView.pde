@@ -1,8 +1,3 @@
-// TODO:
-// - draw all 8 moon phases in 3 zooms
-// - add phase of moon slider
-
-
 // CosmosView main file
 PGraphics pg;
 PImage img, msk;
@@ -12,7 +7,7 @@ import g4p_controls.*;
 // Gui variables
 int guiZoom = 25;
 String guiCB = "Moon";
-float guiFocus = 4;
+float guiFocus = 3;
 int guiPhase = 2;
 
 
