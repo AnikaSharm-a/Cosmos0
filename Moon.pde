@@ -71,13 +71,14 @@ class Moon extends CelestialBody {
       
       // Phases
       fill(0);
-      if (phase == 1) circle(x, y, this.diameter); // new moon
-      else if (phase == 2) circle(x-15, y, this.diameter); // waxing crescent
-      else if (phase == 3) arc(x, y, this.diameter, this.diameter, HALF_PI, PI+HALF_PI) ; // first quarter
-      else if (phase == 4) { noFill(); stroke(0); strokeWeight(15); ellipse(x+10, y, this.diameter+10, this.diameter+15); } // waxing gibbous
-      else if (phase == 6) { noFill(); stroke(0); strokeWeight(15); ellipse(x-10, y, this.diameter+10, this.diameter+15); } // waning gibbous
-      else if (phase == 7) arc(x, y, this.diameter, this.diameter, PI+HALF_PI, TWO_PI+HALF_PI); // third quarter
-      else if (phase == 8) circle(x+15, y, this.diameter); // waning crescent
+      if (phase == 1) { circle(x, y, this.diameter); this.desc += "\nCurrent Moon Phase: New Moon"; } // new moon
+      else if (phase == 2) { circle(x-15, y, this.diameter); this.desc += "\nCurrent Moon Phase: Waxing Crescent"; } // waxing crescent
+      else if (phase == 3) { arc(x, y, this.diameter, this.diameter, HALF_PI, PI+HALF_PI); this.desc += "\nCurrent Moon Phase: First Quarter"; } // first quarter
+      else if (phase == 4) { noFill(); stroke(0); strokeWeight(15); ellipse(x+10, y, this.diameter+10, this.diameter+15); this.desc += "\nCurrent Moon Phase: Waxing Gibbous";} // waxing gibbous
+      else if (phase == 6) { noFill(); stroke(0); strokeWeight(15); ellipse(x-10, y, this.diameter+10, this.diameter+15); this.desc += "\nCurrent Moon Phase: Waning Gibbous";} // waning gibbous
+      else if (phase == 7) { arc(x, y, this.diameter, this.diameter, PI+HALF_PI, TWO_PI+HALF_PI); this.desc += "\nCurrent Moon Phase: Third Quarter"; } // third quarter
+      else if (phase == 8) { circle(x+15, y, this.diameter); this.desc += "\nCurrent Moon Phase: Waning Crescent"; }// waning crescent
+      else this.desc += "\nCurrent Moon Phase: Full Moon"; // Full Moon
     }
     
     
@@ -100,13 +101,14 @@ class Moon extends CelestialBody {
       
       // Phases
       fill(0);
-      if (phase == 1) circle(x, y, this.diameter); // new moon
-      else if (phase == 2) circle(x-30, y, this.diameter); // waxing crescent
-      else if (phase == 3) arc(x, y, this.diameter, this.diameter, HALF_PI, PI+HALF_PI) ; // first quarter
-      else if (phase == 4) { noFill(); stroke(0); strokeWeight(30); ellipse(x+17, y, this.diameter+10, this.diameter+30); } // waxing gibbous
-      else if (phase == 6) { noFill(); stroke(0); strokeWeight(30); ellipse(x-17, y, this.diameter+10, this.diameter+30); } // waning gibbous
-      else if (phase == 7) arc(x, y, this.diameter, this.diameter, PI+HALF_PI, TWO_PI+HALF_PI); // third quarter
-      else if (phase == 8) circle(x+30, y, this.diameter); // waning crescent
+      if (phase == 1) { circle(x, y, this.diameter); this.desc += "\nCurrent Moon Phase: New Moon"; } // new moon
+      else if (phase == 2) { circle(x-30, y, this.diameter); this.desc += "\nCurrent Moon Phase: Waxing Crescent"; } // waxing crescent
+      else if (phase == 3) { arc(x, y, this.diameter, this.diameter, HALF_PI, PI+HALF_PI); this.desc += "\nCurrent Moon Phase: First Quarter"; } // first quarter
+      else if (phase == 4) { noFill(); stroke(0); strokeWeight(30); ellipse(x+17, y, this.diameter+10, this.diameter+30); this.desc += "\nCurrent Moon Phase: Waxing Gibbous";} // waxing gibbous
+      else if (phase == 6) { noFill(); stroke(0); strokeWeight(30); ellipse(x-17, y, this.diameter+10, this.diameter+30); this.desc += "\nCurrent Moon Phase: Waning Gibbous";} // waning gibbous
+      else if (phase == 7) { arc(x, y, this.diameter, this.diameter, PI+HALF_PI, TWO_PI+HALF_PI); this.desc += "\nCurrent Moon Phase: Third Quarter"; }// third quarter
+      else if (phase == 8) { circle(x+30, y, this.diameter); this.desc += "\nCurrent Moon Phase: Waning Crescent"; }// waning crescent
+      else this.desc += "\nCurrent Moon Phase: Full Moon"; // Full Moon
     }
   }
   
